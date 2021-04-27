@@ -19,7 +19,7 @@ aTre, aTes, cTre, cTes = train_test_split(atributos, classificadores, test_size=
 
 #Cria o modelo
 modelo = Sequential()
-modelo.add(Dense(units=5, activation='sigmoid', input_dim=8))
+modelo.add(Dense(units=5, activation='linear', input_dim=8))
 modelo.add(Dense(units=1, activation='sigmoid'))
 modelo.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['binary_accuracy'])
 #Treinando
