@@ -29,9 +29,6 @@ modelo.fit(aTre, cTre, batch_size=10, epochs=500)
 modelo.save('modelo.h5') 
 
 #Avalia
-resultados = modelo.predict(aTes)
-resultados = list(map(lambda r: 1 if r > 0.5 else 0, resultados))
-#Cria um vetor True ou False quando acerta um valor
-comparacao = resultados == cTes #Retorna True quando valores são iguais
-
-print('Total:', len(comparacao), '| Acertos: ', np.sum(comparacao))
+resultado = modelo.evaluate(aTes, cTes, batch_size=10)
+print('Loss Function', resultado[0])
+print('Precisão/Acurácia', resultado[1])
